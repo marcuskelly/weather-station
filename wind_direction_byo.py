@@ -62,6 +62,8 @@ def get_value(length=5):
     return get_average(data)
 
 
+# Uncomment below for testing
+
 #print(get_value())
 
 #while True:
