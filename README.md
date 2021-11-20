@@ -11,7 +11,7 @@ Follow the guides and tutorials at [https://github.com/raspberrypilearning/weath
 [wind_direction_byo.py](https://github.com/marcuskelly/weather-station/blob/main/wind_direction_byo.py)  # Wind direction <br />
 [rainfall.py](https://github.com/marcuskelly/weather-station/blob/main/rainfall.py)  # Rainfall measurement <br />
 [weather_station_BYO_1.py](https://github.com/marcuskelly/weather-station/blob/main/weather_station_BYO_1.py)  # Main driver (Part 1 - Wind speed, gusts and direction) <br />
-weather_station_BYO_2.py  # Main driver (Part 2 - Rainfall) <br />
+[weather_station_BYO_2.py](https://github.com/marcuskelly/weather-station/blob/main/weather_station_BYO_2.py)  # Main driver (Part 2 - Rainfall) <br />
 weather_station_BYO_3.py  # Main driver (Part 3 - Temperature, pressure and humidity) <br />
 weather_station_BYO_4.py  # Main driver (Part 4 - Ground temperature) <br />
 weather_station_BYO_5.py  # Main driver (Part 5 - Storing measurements in a local database) <br />
