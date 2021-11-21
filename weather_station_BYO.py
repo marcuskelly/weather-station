@@ -17,8 +17,9 @@ BUCKET_SIZE = 0.2794
 wind_count = 0  # Counts how many half-rotations
 radius_cm = 9.0  # Radius of your anemometer
 wind_interval = 5  # Hpw often (secs) to report speed
-interval = 25
+interval = 25  # How long in seconds to collect data
 rain_count = 0
+gust = 0
 store_speeds = []
 store_directions = []
 
@@ -59,6 +60,11 @@ def reset_rainfall():
     global rain_count
     rain_count = 0
 
+
+def reset_gust():
+    global gust
+    gust = 0
+
 wind_speed_sensor = Button(5)
 wind_speed_sensor.when_pressed = spin
 temp_probe = ds18b20_therm.DS18B20()
@@ -68,7 +74,6 @@ rain_sensor.when_pressed = bucket_tipped
 
 db = database.weather_database()
 
-# Loop to measure wind speed and report at 5-second intervals
 while True:
     start_time = time.time()
     while time.time() - start_time <= interval:
@@ -80,7 +85,7 @@ while True:
 
         final_speed = calculate_speed(wind_interval)
         store_speeds.append(final_speed)
-    ct = datetime.datetime.now()
+    created = datetime.datetime.now()
     wind_average = wind_direction_byo.get_average(store_directions)
     wind_gust = max(store_speeds)
     wind_speed = statistics.mean(store_speeds)
@@ -91,5 +96,14 @@ while True:
     store_speeds = []
     store_directions = []
     
-    print(wind_speed, wind_gust, wind_average, rainfall, humidity, pressure, ambient_temp, ground_temp)
-    db.insert(ambient_temp, ground_temp, 0, pressure, humidity, wind_average, wind_speed, wind_gust, rainfall, ct)
+    print('Wind direction:\t\t' + str(wind_average))
+    print('Wind speed:\t\t' + str(wind_speed))
+    print('Wind gust:\t\t' + str(wind_gust))
+    print('Ambient Temperature:\t' + str(ambient_temp))
+    print('Ground Temperature:\t' + str(ground_temp))
+    print('Humidity:\t\t' + str(humidity))
+    print('Pressure:\t\t' + str(pressure))
+    print('Rainfall:\t\t' + str(rainfall))
+    
+    print("Inserting into database...")
+    db.insert(ambient_temp, ground_temp, 0, pressure, humidity, wind_average, wind_speed, wind_gust, rainfall, created)
