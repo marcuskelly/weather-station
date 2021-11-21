@@ -85,7 +85,7 @@ while True:
 
         final_speed = calculate_speed(wind_interval)
         store_speeds.append(final_speed)
-    created = datetime.datetime.now()
+    created = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     wind_average = wind_direction_byo.get_average(store_directions)
     wind_gust = max(store_speeds)
     wind_speed = statistics.mean(store_speeds)
