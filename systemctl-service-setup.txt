@@ -1,0 +1,36 @@
+#Open the editor
+sudo systemctl --force --full edit weather_station_BYO.service
+
+#Add below and save
+[Unit]
+Description=Start weather station
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/weather-station/weather_station_BYO.py
+WorkingDirectory=/home/pi/weather-station/
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+# Enable the service (service will start on boot)
+sudo systemctl enable weather_station_BYO.service
+
+# Disable the service
+sudo systemctl disable weather_station_BYO.service
+
+# Start the service
+sudo systemctl start weather_station_BYO.service
+
+# Stop the service
+sudo systemctl stop weather_station_BYO.service
+
+# Check status of the service
+sudo systemctl status weather_station_BYO.service
+
+
+
+
+
