@@ -27,12 +27,12 @@ cloud_db = db.reference('/')
 
 CM_IN_A_KM = 100000.0
 SECS_IN_AN_HOUR = 3600
-ADJUSTMENT = 1.18
+ADJUSTMENT = 2.36
 BUCKET_SIZE = 0.2794
 
 radius_cm = 9.0  # Radius of your anemometer
 wind_interval = 5  # How often (secs) to report speed
-interval = 300  # How long in seconds to collect data
+interval = 600  # How long in seconds to collect data
 wind_count = 0  # Counts how many half-rotations
 rain_count = 0
 gust = 0

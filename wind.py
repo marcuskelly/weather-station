@@ -5,7 +5,7 @@ import statistics
 
 CM_IN_A_KM = 100000.0
 SECS_IN_AN_HOUR = 3600
-ADJUSTMENT = 1.18
+ADJUSTMENT = 2.36
 
 wind_speed_sensor = Button(5)
 wind_count = 0  # Counts how many half-rotations

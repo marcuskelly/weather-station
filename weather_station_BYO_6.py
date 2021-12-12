@@ -22,7 +22,7 @@ firebase_admin.initialize_app(cred, {
 })
 
 # As an admin, the app has access to read and write all data, regradless of Security Rules
-cloud_db = db.reference('/')
+cloud_db = db.reference('weather')
 # print(cloud_db.get())
 
 CM_IN_A_KM = 100000.0
