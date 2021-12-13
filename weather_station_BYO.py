@@ -111,23 +111,23 @@ while True:
     store_speeds = []
     store_directions = []
 
-    print('Wind direction:\t\t' + str(wind_direction))
-    print('Wind speed:\t\t' + str(wind_speed))
-    print('Wind gust:\t\t' + str(wind_gust))
-    print('Ambient Temperature:\t' + str(ambient_temp))
-    print('Ground Temperature:\t' + str(ground_temp))
-    print('Humidity:\t\t' + str(humidity))
-    print('Pressure:\t\t' + str(pressure))
-    print('Rainfall:\t\t' + str(rainfall))
+    # print('Wind direction:\t\t' + str(wind_direction))
+    # print('Wind speed:\t\t' + str(wind_speed))
+    # print('Wind gust:\t\t' + str(wind_gust))
+    # print('Ambient Temperature:\t' + str(ambient_temp))
+    # print('Ground Temperature:\t' + str(ground_temp))
+    # print('Humidity:\t\t' + str(humidity))
+    # print('Pressure:\t\t' + str(pressure))
+    #print('Rainfall:\t\t' + str(rainfall))
 
-    print("Inserting into local database...")
+    # print("Inserting into local database...")
     try:
         local_db.insert(ambient_temp, ground_temp, 0, pressure, humidity, wind_direction, wind_speed, wind_gust, rainfall, created)
-        print("SUCCESS")
+        # print("SUCCESS")
     except:
         print("ERROR - Unable to insert into local database")
 
-    print("Inserting into cloud database...")
+    # print("Inserting into cloud database...")
     try:
         cloud_db.push({
             "Wind direction": str(wind_direction),
@@ -139,6 +139,6 @@ while True:
             "Pressure": str(pressure),
             "Rainfall": str(rainfall),
             "Created": created})
-        print("SUCCESS")
+        # print("SUCCESS")
     except:
         print("ERROR - Unable to insert into cloud database")

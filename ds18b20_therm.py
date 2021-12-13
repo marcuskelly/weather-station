@@ -44,4 +44,4 @@ class DS18B20(object):
 
 if __name__ == "__main__":
     obj = DS18B20()
-    print("Temp: %s C" % obj.read_temp())
+    # print("Temp: %s C" % obj.read_temp())
